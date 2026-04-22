@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}{{ site_name }} – Subscribe{% endblock %}
+
+{% block content %}
+<div class="card">
+
+  <!-- Step indicator -->
+  <div class="steps">
+    <div class="step-dot active"></div>
+    <div class="step-dot"></div>
+    <div class="step-dot"></div>
+  </div>
+
+  <div class="step-badge">Step 1 of 2 &nbsp;·&nbsp; Enter Number</div>
+
+  <h1>Start Playing</h1>
+  <p class="subtitle">Enter your mobile number to receive a one-time PIN and activate your subscription.</p>
+
+  {% if error %}
+  <div class="error-box">
+    <span class="error-icon">⚠</span>
+    <span>{{ error }}</span>
+  </div>
+  {% endif %}
+
+  <form method="POST" action="/request-pin" novalidate>
+    <div class="field">
+      <label for="msisdn">Mobile Number</label>
+      <div class="input-group">
+        <span class="input-prefix">🇰🇼 +965</span>
+        <input
+          type="tel"
+          id="msisdn"
+          name="msisdn"
+          placeholder="XXXXXXXX"
+          inputmode="tel"
+          autocomplete="tel"
+          required
+          maxlength="20"
+          value="{{ request.form.msisdn or '' }}"
+        />
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+      <span class="btn-text">Send PIN →</span>
+    </button>
+  </form>
+
+  <p class="info-note">
+    By subscribing you accept our
+    <a href="#">Terms of Service</a> and
+    <a href="#">Privacy Policy</a>.<br>
+    Standard carrier rates may apply.
+  </p>
+
+</div>
+{% endblock %}

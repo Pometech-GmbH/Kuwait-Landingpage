@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}{{ site_name }} – Welcome!{% endblock %}
+
+{% block content %}
+<div class="card" style="text-align:center;">
+
+  <!-- Step indicator -->
+  <div class="steps" style="justify-content:center;">
+    <div class="step-dot done"></div>
+    <div class="step-dot done"></div>
+    <div class="step-dot active"></div>
+  </div>
+
+  <div class="success-icon">🎮</div>
+
+  <h1 style="margin-bottom:12px;">You're In!</h1>
+  <p class="subtitle" style="margin-bottom:28px;">
+    Your subscription is now active. Welcome to {{ site_name }} — dive into your games anytime.
+  </p>
+
+  <div style="
+    background: rgba(0,255,148,0.07);
+    border: 1px solid rgba(0,255,148,0.2);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 28px;
+    font-size: 0.85rem;
+    color: #7fffbe;
+    text-align: left;
+    line-height: 1.7;
+  ">
+    <strong style="display:block;margin-bottom:4px;">Subscription confirmed ✓</strong>
+    You now have full access to {{ site_name }}. Manage your account at any time from the portal.
+  </div>
+
+  <a href="/" style="
+    display: block;
+    width: 100%;
+    padding: 15px 24px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #00d4ff, #7b2fff);
+    color: #fff;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(0,212,255,0.3);
+    transition: transform 0.15s, box-shadow 0.15s;
+  "
+  onmouseover="this.style.transform='translateY(-1px)'; this.style.boxShadow='0 8px 28px rgba(0,212,255,0.4)'"
+  onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 20px rgba(0,212,255,0.3)'"
+  >
+    Start Playing →
+  </a>
+
+</div>
+{% endblock %}
